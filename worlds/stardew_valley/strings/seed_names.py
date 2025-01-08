@@ -74,7 +74,7 @@ class DistantLandsSeed:
     vile_ancient_fruit = "Vile Ancient Fruit Seeds"
 
 
-class CornSeed:
+class CornucopiaCropsSeed:
     basil = "Basil Seeds"
     bell_pepper = "Bell Pepper Seeds"
     turnip = "Turnip Seeds"
@@ -93,7 +93,7 @@ class CornSeed:
 
 
 
-class CornCropExtSeed:
+class CornucopiaCropsExtendedCropsSeed:
     adzuki = "Adzuki Bean Seeds"
     agave = "Agave Seeds"
     asparagus = "Asparagus Seeds"
@@ -132,7 +132,7 @@ class CornCropExtSeed:
     wasabi = "Wasabi Tuber"
 
 
-class CornHerbExtSeed:
+class CornucopiaCropsExtendedHerbsSeed:
     aloe = "Aloe Pod"
     catnip = "Catnip Seeds"
     chive = "Chive Seeds"

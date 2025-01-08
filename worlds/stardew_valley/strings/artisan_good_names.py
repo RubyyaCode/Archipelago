@@ -65,12 +65,12 @@ class ArtisanGood:
 class ModArtisanGood:
     pterodactyl_egg = "Pterodactyl Egg"
 
-class CornArtisanGood:
+class CornucopiaCropsArtisanGood:
     tofu = "Tofu"
     molasses = "Molasses"
     olive_oil = "Olive Oil"
 
-class CornCropExtArtisanGood:
+class CornucopiaCropsExtendedCropsArtisanGood:
     rubber = "Chicle Rubber"
     dark_ale = "Dark Ale"
     porter = "Porter"

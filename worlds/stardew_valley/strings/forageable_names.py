@@ -68,22 +68,22 @@ class DistantLandsForageable:
     swamp_herb = "Swamp Herb"
 
 
-class CornForageable:
+class CornucopiaCropsForageable:
     cotton = "Cotton Boll"
     cocoa = "Cocoa Pod"
     pistachio = "Pistachio"
 
-class CornCropExtForageable:
+class CornucopiaCropsExtendedCropsForageable:
     chickwood = "Chicken of the Woods"
     shiitake = "Shiitake"
 
-class CornTreeExtForageable:
+class CornucopiaCropsExtendedTreesForageable:
     almond = "Almond"
     cashew = "Cashew"
     pecan = "Pecan"
     walnut = "Walnut"
 
-class CornHerbExtForageable:
+class CornucopiaCropsExtendedHerbsForageable:
     turmeric = "Turmeric"
     cinnamon = "Cinnamon Sticks"
     nutmeg = "Nutmeg"

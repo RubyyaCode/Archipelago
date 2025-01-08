@@ -70,15 +70,15 @@ class DistantLandsCrop:
 
 
 
-class CornFruit:
-    bell_peppr = "Bell Pepper"
+class CornucopiaCropsFruit:
+    bell_pepper = "Bell Pepper"
     kiwi = "Kiwifruit"
     watermelon = "Watermelon"
     avocado = "Avocado"
     pear = "Pear"
     raspberry = "Raspberry"
 
-class CornVegetable:
+class CornucopiaCropsVegetable:
     basil = "Basil"
     cucumber = "Cucumber"
     lettuce = "Lettuce"
@@ -91,7 +91,7 @@ class CornVegetable:
     olive = "Olive"
     peppercorn = "Peppercorn"
 
-class CornCropExtFruit:
+class CornucopiaCropsExtendedCropsFruit:
     canary_melon = "Canary Melon"
     cantaloupe = "Cantaloupe"
     groundcherry = "Groundcherries"
@@ -106,7 +106,7 @@ class CornCropExtFruit:
     white_grape = "White Grape"
     sapodilla = "Sapodilla"
 
-class CornCropExtVegetable:
+class CornucopiaCropsExtendedCropsVegetable:
     adzuki = "Adzuki Bean"
     agave = "Agave"
     asparagus = "Asparagus"
@@ -137,7 +137,7 @@ class CornCropExtVegetable:
     wasabi = "Wasabi Root"
 
 
-class CornHerbExtVegetable:
+class CornucopiaCropsExtendedHerbsVegetable:
     aloe = "Aloe"
     catnip = "Catnip"
     chives = "Chives"
@@ -162,7 +162,7 @@ class CornHerbExtVegetable:
     eucalyptus = "Eucalyptus Leaves"
     melaleuca = "Melaleuca Leaves"
 
-class CornTreeExtFruit:
+class CornucopiaCropsExtendedTreesFruit:
     breadfruit = "Breadfruit"
     dragon_fruit = "Dragon Fruit"
     durian = "Durian"

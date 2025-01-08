@@ -10,7 +10,7 @@ class Sapling:
     tea = "Tea Sapling"
 
 
-class CornSapling:
+class CornucopiaCropsSapling:
     olive = "Olive Sapling"
     raspberry = "Raspberry Sapling"
     peppercorn = "Peppercorn Planter"
@@ -20,7 +20,7 @@ class CornSapling:
     pear = "Pear Sapling"
     pistachio = "Pistachio Sapling"
 
-class CornCropExtSapling:
+class CornucopiaCropsExtendedCropsSapling:
     white_grape = "White Grape Planter"
     currant = "Black Currant Sapling"
     chickwood = "Chicken of the Woods Planter"
@@ -30,7 +30,7 @@ class CornCropExtSapling:
     shiitake = "Shiitake Planter"
     sapodilla = "Sapodilla Seed"
 
-class CornHerbExtSapling:
+class CornucopiaCropsExtendedHerbsSapling:
     bay = "Bay Sapling"
     camphor = "Camphor Sapling"
     cinnamon = "Cinnamon Sapling"
@@ -38,7 +38,7 @@ class CornHerbExtSapling:
     melaleuca = "Melaleuca Sapling"
     nutmeg = "Nutmeg Sapling"
 
-class CornTreeExtSapling:
+class CornucopiaCropsExtendedTreesSapling:
     almond = "Almond Sapling"
     breadfruit = "Breadfruit Sapling"
     cashew = "Cashew Sapling"

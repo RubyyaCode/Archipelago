@@ -780,8 +780,8 @@ class Mods(OptionSet):
                   ModNames.jasper, ModNames.alec, ModNames.yoba, ModNames.eugene,
                   ModNames.wellwick, ModNames.ginger, ModNames.shiko, ModNames.delores,
                   ModNames.ayeisha, ModNames.riley, ModNames.skull_cavern_elevator, ModNames.sve, ModNames.distant_lands,
-                  ModNames.alecto, ModNames.lacey, ModNames.boarding_house, ModNames.cornucopia, ModNames.cornucopia_crop, 
-                  ModNames.cornucopia_herb, ModNames.cornucopia_tree}.difference(disabled_mods)
+                  ModNames.alecto, ModNames.lacey, ModNames.boarding_house, ModNames.cornucopia_crops, ModNames.cornucopia_crops_crops, 
+                  ModNames.cornucopia_crops_herbs, ModNames.cornucopia_crops_trees}.difference(disabled_mods)
 
 
 class BundlePlando(OptionSet):

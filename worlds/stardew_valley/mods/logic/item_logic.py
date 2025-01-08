@@ -27,9 +27,9 @@ from ...strings.craftable_names import ModCraftable, ModMachine
 from ...strings.fish_names import ModTrash
 from ...strings.artisan_good_names import ModArtisanGood, CornArtisanGood, CornCropExtArtisanGood, ArtisanGood
 from ...strings.craftable_names import ModCraftable, ModEdible, ModMachine
-from ...strings.crop_names import SVEVegetable, SVEFruit, DistantLandsCrop, CornVegetable, CornCropExtVegetable, CornFruit, CornCropExtFruit
-from ...strings.seed_names import CornCropExtSeed
-from ...strings.flower_names import CornCropExtFlower
+from ...strings.crop_names import SVEVegetable, SVEFruit, DistantLandsCrop, CornucopiaCropsVegetable, CornucopiaCropsExtendedCropsVegetable, CornFruit, CornucopiaCropsExtendedCropsFruit
+from ...strings.seed_names import CornucopiaCropsExtendedCropsSeed
+from ...strings.flower_names import CornucopiaCropsExtendedCropsFlower
 from ...strings.fish_names import ModTrash, SVEFish
 from ...strings.food_names import SVEMeal, SVEBeverage
 from ...strings.forageable_names import SVEForage, DistantLandsForageable
@@ -43,7 +43,7 @@ from ...strings.region_names import SVERegion, DeepWoodsRegion, BoardingHouseReg
 from ...strings.tool_names import Tool, ToolMaterial
 from ...strings.villager_names import ModNPC
 from ..strings.machine_names import Machine
-from ...strings.forageable_names import CornForageable
+from ...strings.forageable_names import CornucopiaCropsForageable
 from ..strings.building_names import Building
 
 display_types = [ModCraftable.wooden_display, ModCraftable.hardwood_display]
@@ -167,27 +167,27 @@ FarmingLogicMixin]]):
 
     def get_cornucopia_rules(self, items: Dict[str, StardewRule]):
         return {
-            CornArtisanGood.tofu: (self.has(CornSeed.soybean) & self.has(Machine.cheese_press)),
-            ArtisanGood.cloth: items[ArtisanGood.cloth] | (self.has(CornForageable.cotton) & self.has(Machine.loom)),
-            CornArtisanGood.molasses: (self.has(CornVegetable.sugarcane) & self.building.has_building(Building.mill)),
-            Ingredient.sugar: items[Ingredient.sugar] | (self.has(CornVegetable.sugarcane) & self.building.has_building(Building.mill)),
-            Ingredient.oil: items[Ingredient.oil] | (self.has(CornVegetable.peanut) & self.has(Machine.oil_maker)),
-            CornArtisanGood.olive_oil: (self.has(CornVegetable.olive) & self.has(Machine.oil_maker))
+            CornArtisanGood.tofu: (self.has(CornucopiaCropsSeed.soybean) & self.has(Machine.cheese_press)),
+            ArtisanGood.cloth: items[ArtisanGood.cloth] | (self.has(CornucopiaCropsForageable.cotton) & self.has(Machine.loom)),
+            CornArtisanGood.molasses: (self.has(CornucopiaCropsVegetable.sugarcane) & self.building.has_building(Building.mill)),
+            Ingredient.sugar: items[Ingredient.sugar] | (self.has(CornucopiaCropsVegetable.sugarcane) & self.building.has_building(Building.mill)),
+            Ingredient.oil: items[Ingredient.oil] | (self.has(CornucopiaCropsVegetable.peanut) & self.has(Machine.oil_maker)),
+            CornArtisanGood.olive_oil: (self.has(CornucopiaCropsVegetable.olive) & self.has(Machine.oil_maker))
             }
 
     def get_cornucopia_crop_rules(self, items: Dict[str, StardewRule]):
         return {
             CornCropExtArtisanGood.rubber: self.has(Machine.tapper),
-            CornCropExtArtisanGood.dark_ale: (self.has(CornCropExtVegetable.durum) & self.has(Machine.keg)),
-            CornCropExtArtisanGood.porter: (self.has(CornCropExtVegetable.buckwheat) & self.has(Machine.keg)),
-            CornCropExtArtisanGood.sparkling_wine: (self.has(CornCropExtFruit.white_grape) & self.has(Machine.keg)),
-            CornCropExtArtisanGood.stout: (self.has(CornCropExtVegetable.barley) & self.has(Machine.keg)),
-            CornCropExtArtisanGood.buckwheat_flour: (self.has(CornCropExtVegetable.buckwheat) & self.buiding.has_building(Building.mill)),
-            CornArtisanGood.molasses: items[CornCropExtArtisanGood.molasses] | (self.has(CornCropExtVegetable.sugar_beet) & self.building.has_building(Building.mill)),
-            CornCropExtArtisanGood.semolina_flour: (self.has(CornCropExtVegetable.durum) & self.building.has_building(Building.mill)),
-            Ingredient.sugar: items[Ingredient.sugar] | (self.has(CornCropExtVegetable.sugar_beet) & self.building.has_building(Building.mill)),
-            CornCropExtArtisanGood.whole_grain_flour: (self.has(CornCropExtVegetable.barley) & self.building.has_building(Building.mill)),
-            Ingredient.oil: items[Ingredient.oil] | ((self.has(CornCropExtSeed.canola) | self.has(CornCropExtFlower.canola)) & self.has(Machine.oil_maker)),
+            CornCropExtArtisanGood.dark_ale: (self.has(CornucopiaCropsExtendedCropsVegetable.durum) & self.has(Machine.keg)),
+            CornCropExtArtisanGood.porter: (self.has(CornucopiaCropsExtendedCropsVegetable.buckwheat) & self.has(Machine.keg)),
+            CornCropExtArtisanGood.sparkling_wine: (self.has(CornucopiaCropsExtendedCropsFruit.white_grape) & self.has(Machine.keg)),
+            CornCropExtArtisanGood.stout: (self.has(CornucopiaCropsExtendedCropsVegetable.barley) & self.has(Machine.keg)),
+            CornCropExtArtisanGood.buckwheat_flour: (self.has(CornucopiaCropsExtendedCropsVegetable.buckwheat) & self.buiding.has_building(Building.mill)),
+            CornArtisanGood.molasses: items[CornCropExtArtisanGood.molasses] | (self.has(CornucopiaCropsExtendedCropsVegetable.sugar_beet) & self.building.has_building(Building.mill)),
+            CornCropExtArtisanGood.semolina_flour: (self.has(CornucopiaCropsExtendedCropsVegetable.durum) & self.building.has_building(Building.mill)),
+            Ingredient.sugar: items[Ingredient.sugar] | (self.has(CornucopiaCropsExtendedCropsVegetable.sugar_beet) & self.building.has_building(Building.mill)),
+            CornCropExtArtisanGood.whole_grain_flour: (self.has(CornucopiaCropsExtendedCropsVegetable.barley) & self.building.has_building(Building.mill)),
+            Ingredient.oil: items[Ingredient.oil] | ((self.has(CornucopiaCropsExtendedCropsSeed.canola) | self.has(CornucopiaCropsExtendedCropsFlower.canola)) & self.has(Machine.oil_maker)),
 
                }
 

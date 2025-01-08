@@ -6,8 +6,8 @@ class Flower:
     sunflower = "Sunflower"
     tulip = "Tulip"
 
-class CornFlower:
+class CornucopiaCropsFlower:
     vanilla = "Vanilla"
 
-class CornCropExtFlower:
+class CornucopiaCropsExtendedCropsFlower:
     canola = "Canola Flower"

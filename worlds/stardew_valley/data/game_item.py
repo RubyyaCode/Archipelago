@@ -20,6 +20,7 @@ class ItemTag(enum.Enum):
     FISH = enum.auto()
     FRUIT = enum.auto()
     VEGETABLE = enum.auto()
+    FLOWER = enum.auto()
     EDIBLE_MUSHROOM = enum.auto()
     BOOK = enum.auto()
     BOOK_POWER = enum.auto()
