@@ -265,6 +265,7 @@ def create_unique_items(item_factory: StardewItemFactory, options: StardewValley
     create_magic_mod_spells(item_factory, options, items)
     create_deepwoods_pendants(item_factory, options, items)
     create_archaeology_items(item_factory, options, items)
+    
 
     return items
 

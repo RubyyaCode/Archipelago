@@ -26,3 +26,8 @@ class ModNames:
     distant_lands = "Distant Lands - Witch Swamp Overhaul"
     lacey = "Hat Mouse Lacey"
     boarding_house = "Boarding House and Bus Stop Extension"
+    cornucopia = "Cornucopia - More Crops"
+    cornucopia_crop = "Cornucopia - More Crops - Crop Extension"
+    cornucopia_herb = "Cornucopia - More Crops - Herb Extension"
+    cornucopia_tree = "Cornucopia - More Crops - Tree Extension"
+

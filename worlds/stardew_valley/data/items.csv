@@ -431,7 +431,7 @@ id,name,classification,groups,mod_name
 454,Marble Brazier Recipe,progression,CRAFTSANITY,
 455,Wood Lamp-post Recipe,progression,CRAFTSANITY,
 456,Iron Lamp-post Recipe,progression,CRAFTSANITY,
-457,Furnace Recipe,progression,"CRAFTSANITY",
+457,Furnace Recipe,progression,CRAFTSANITY,
 458,Wicked Statue Recipe,progression,CRAFTSANITY,
 459,Chest Recipe,progression,CRAFTSANITY,
 460,Wood Sign Recipe,progression,CRAFTSANITY,
@@ -467,38 +467,38 @@ id,name,classification,groups,mod_name
 500,Mounted Trout,filler,FESTIVAL,
 501,'Squid Kid',filler,FESTIVAL,
 502,Squid Hat,filler,FESTIVAL,
-503,Resource Pack: 200 Calico Egg,useful,"FESTIVAL",
-504,Resource Pack: 120 Calico Egg,useful,"FESTIVAL",
-505,Resource Pack: 100 Calico Egg,useful,"FESTIVAL",
-506,Resource Pack: 50 Calico Egg,useful,"FESTIVAL",
-507,Resource Pack: 40 Calico Egg,useful,"FESTIVAL",
-508,Resource Pack: 35 Calico Egg,useful,"FESTIVAL",
-509,Resource Pack: 30 Calico Egg,useful,"FESTIVAL",
-510,Book: The Art O' Crabbing,useful,"FESTIVAL",
+503,Resource Pack: 200 Calico Egg,useful,FESTIVAL,
+504,Resource Pack: 120 Calico Egg,useful,FESTIVAL,
+505,Resource Pack: 100 Calico Egg,useful,FESTIVAL,
+506,Resource Pack: 50 Calico Egg,useful,FESTIVAL,
+507,Resource Pack: 40 Calico Egg,useful,FESTIVAL,
+508,Resource Pack: 35 Calico Egg,useful,FESTIVAL,
+509,Resource Pack: 30 Calico Egg,useful,FESTIVAL,
+510,Book: The Art O' Crabbing,useful,FESTIVAL,
 511,Mr Qi's Plane Ride,progression,,
-521,Power: Price Catalogue,useful,"BOOK_POWER",
-522,Power: Mapping Cave Systems,useful,"BOOK_POWER",
-523,Power: Way Of The Wind pt. 1,progression,"BOOK_POWER",
-524,Power: Way Of The Wind pt. 2,useful,"BOOK_POWER",
-525,Power: Monster Compendium,useful,"BOOK_POWER",
-526,Power: Friendship 101,useful,"BOOK_POWER",
-527,"Power: Jack Be Nimble, Jack Be Thick",useful,"BOOK_POWER",
-528,Power: Woody's Secret,useful,"BOOK_POWER",
-529,Power: Raccoon Journal,useful,"BOOK_POWER",
-530,Power: Jewels Of The Sea,useful,"BOOK_POWER",
-531,Power: Dwarvish Safety Manual,useful,"BOOK_POWER",
-532,Power: The Art O' Crabbing,useful,"BOOK_POWER",
-533,Power: The Alleyway Buffet,useful,"BOOK_POWER",
-534,Power: The Diamond Hunter,useful,"BOOK_POWER",
-535,Power: Book of Mysteries,progression,"BOOK_POWER",
-536,Power: Horse: The Book,useful,"BOOK_POWER",
-537,Power: Treasure Appraisal Guide,useful,"BOOK_POWER",
-538,Power: Ol' Slitherlegs,useful,"BOOK_POWER",
-539,Power: Animal Catalogue,useful,"BOOK_POWER",
-541,Progressive Lost Book,progression,"LOST_BOOK",
+521,Power: Price Catalogue,useful,BOOK_POWER,
+522,Power: Mapping Cave Systems,useful,BOOK_POWER,
+523,Power: Way Of The Wind pt. 1,progression,BOOK_POWER,
+524,Power: Way Of The Wind pt. 2,useful,BOOK_POWER,
+525,Power: Monster Compendium,useful,BOOK_POWER,
+526,Power: Friendship 101,useful,BOOK_POWER,
+527,"Power: Jack Be Nimble, Jack Be Thick",useful,BOOK_POWER,
+528,Power: Woody's Secret,useful,BOOK_POWER,
+529,Power: Raccoon Journal,useful,BOOK_POWER,
+530,Power: Jewels Of The Sea,useful,BOOK_POWER,
+531,Power: Dwarvish Safety Manual,useful,BOOK_POWER,
+532,Power: The Art O' Crabbing,useful,BOOK_POWER,
+533,Power: The Alleyway Buffet,useful,BOOK_POWER,
+534,Power: The Diamond Hunter,useful,BOOK_POWER,
+535,Power: Book of Mysteries,progression,BOOK_POWER,
+536,Power: Horse: The Book,useful,BOOK_POWER,
+537,Power: Treasure Appraisal Guide,useful,BOOK_POWER,
+538,Power: Ol' Slitherlegs,useful,BOOK_POWER,
+539,Power: Animal Catalogue,useful,BOOK_POWER,
+541,Progressive Lost Book,progression,LOST_BOOK,
 551,Golden Walnut,progression,"RESOURCE_PACK,GINGER_ISLAND",
-552,3 Golden Walnuts,progression,"GINGER_ISLAND",
-553,5 Golden Walnuts,progression,"GINGER_ISLAND",
+552,3 Golden Walnuts,progression,GINGER_ISLAND,
+553,5 Golden Walnuts,progression,GINGER_ISLAND,
 554,Damage Bonus,filler,PLAYER_BUFF,
 555,Defense Bonus,filler,PLAYER_BUFF,
 556,Immunity Bonus,filler,PLAYER_BUFF,
@@ -795,30 +795,30 @@ id,name,classification,groups,mod_name
 5263,Slime Egg-Press,useful,RESOURCE_PACK,
 5264,Crystalarium,useful,"RESOURCE_PACK,RESOURCE_PACK_USEFUL",
 5265,Ostrich Incubator,useful,"MAXIMUM_ONE,RESOURCE_PACK,RESOURCE_PACK_USEFUL",
-5266,Resource Pack: 5 Staircase,filler,"RESOURCE_PACK",
+5266,Resource Pack: 5 Staircase,filler,RESOURCE_PACK,
 5267,Auto-Petter,useful,"RESOURCE_PACK,RESOURCE_PACK_USEFUL",
 5268,Auto-Grabber,useful,"RESOURCE_PACK,RESOURCE_PACK_USEFUL",
-5269,Resource Pack: 10 Calico Egg,filler,"RESOURCE_PACK",
-5270,Resource Pack: 20 Calico Egg,filler,"RESOURCE_PACK",
+5269,Resource Pack: 10 Calico Egg,filler,RESOURCE_PACK,
+5270,Resource Pack: 20 Calico Egg,filler,RESOURCE_PACK,
 5272,Tent Kit,useful,"RESOURCE_PACK,RESOURCE_PACK_USEFUL",
-5273,Resource Pack: 4 Mystery Box,filler,"RESOURCE_PACK",
-5274,Prize Ticket,filler,"RESOURCE_PACK",
-5275,Resource Pack: 20 Deluxe Bait,filler,"RESOURCE_PACK",
-5276,Resource Pack: 2 Triple Shot Espresso,filler,"RESOURCE_PACK",
-5277,Dish O' The Sea,filler,"RESOURCE_PACK",
+5273,Resource Pack: 4 Mystery Box,filler,RESOURCE_PACK,
+5274,Prize Ticket,filler,RESOURCE_PACK,
+5275,Resource Pack: 20 Deluxe Bait,filler,RESOURCE_PACK,
+5276,Resource Pack: 2 Triple Shot Espresso,filler,RESOURCE_PACK,
+5277,Dish O' The Sea,filler,RESOURCE_PACK,
 5278,Seafoam Pudding,useful,"RESOURCE_PACK,RESOURCE_PACK_USEFUL",
 5279,Trap Bobber,useful,"RESOURCE_PACK,RESOURCE_PACK_USEFUL",
-5280,Treasure Chest,filler,"RESOURCE_PACK",
-5281,Resource Pack: 15 Mixed Seeds,filler,"RESOURCE_PACK",
-5282,Resource Pack: 15 Mixed Flower Seeds,filler,"RESOURCE_PACK",
-5283,Resource Pack: 5 Cherry Bomb,filler,"RESOURCE_PACK",
-5284,Resource Pack: 3 Bomb,filler,"RESOURCE_PACK",
-5285,Resource Pack: 2 Mega Bomb,filler,"RESOURCE_PACK",
-5286,Resource Pack: 2 Life Elixir,filler,"RESOURCE_PACK",
-5287,Resource Pack: 5 Coffee,filler,"RESOURCE_PACK",
-5289,Prismatic Shard,filler,"RESOURCE_PACK",
-5290,Stardrop Tea,filler,"RESOURCE_PACK",
-5291,Resource Pack: 2 Artifact Trove,filler,"RESOURCE_PACK",
+5280,Treasure Chest,filler,RESOURCE_PACK,
+5281,Resource Pack: 15 Mixed Seeds,filler,RESOURCE_PACK,
+5282,Resource Pack: 15 Mixed Flower Seeds,filler,RESOURCE_PACK,
+5283,Resource Pack: 5 Cherry Bomb,filler,RESOURCE_PACK,
+5284,Resource Pack: 3 Bomb,filler,RESOURCE_PACK,
+5285,Resource Pack: 2 Mega Bomb,filler,RESOURCE_PACK,
+5286,Resource Pack: 2 Life Elixir,filler,RESOURCE_PACK,
+5287,Resource Pack: 5 Coffee,filler,RESOURCE_PACK,
+5289,Prismatic Shard,filler,RESOURCE_PACK,
+5290,Stardrop Tea,filler,RESOURCE_PACK,
+5291,Resource Pack: 2 Artifact Trove,filler,RESOURCE_PACK,
 10001,Luck Level,progression,SKILL_LEVEL_UP,Luck Skill
 10002,Magic Level,progression,SKILL_LEVEL_UP,Magic
 10003,Socializing Level,progression,SKILL_LEVEL_UP,Socializing Skill
@@ -960,3 +960,115 @@ id,name,classification,groups,mod_name
 10719,Composter,filler,"RESOURCE_PACK,RESOURCE_PACK_USEFUL",Binning Skill
 10720,Recycling Bin,filler,"RESOURCE_PACK,RESOURCE_PACK_USEFUL",Binning Skill
 10721,Advanced Recycling Machine,filler,"RESOURCE_PACK,RESOURCE_PACK_USEFUL",Binning Skill
+11000,Basil Seeds,progression,CROPSANITY,Cornucopia Crops Essential
+11001,Bell Pepper Seeds,progression,CROPSANITY,Cornucopia Crops Essential
+11002,Turnip Seeds,progression,CROPSANITY,Cornucopia Crops Essential
+11003,Cotton Seeds,progression,CROPSANITY,Cornucopia Crops Essential
+11004,Cucumber Starter,progression,CROPSANITY,Cornucopia Crops Essential
+11005,Kiwifruit Seeds,progression,CROPSANITY,Cornucopia Crops Essential
+11006,Lettuce Seeds,progression,CROPSANITY,Cornucopia Crops Essential
+11007,Onion Seeds,progression,CROPSANITY,Cornucopia Crops Essential
+11008,Peanut Seeds,progression,CROPSANITY,Cornucopia Crops Essential
+11009,Spinach Seeds,progression,CROPSANITY,Cornucopia Crops Essential
+11010,Soybean,progression,CROPSANITY,Cornucopia Crops Essential
+11011,Sugarcane Shoot,progression,CROPSANITY,Cornucopia Crops Essential
+11012,Watermelon Seeds,progression,CROPSANITY,Cornucopia Crops Essential
+11013,Zucchini Seeds,progression,CROPSANITY,Cornucopia Crops Essential
+11014,Olive Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Essential
+11015,Raspberry Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Essential
+11016,Peppercorn Planter,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY,GINGER_ISLAND",Cornucopia Crops Essential
+11017,Vanilla Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY,GINGER_ISLAND",Cornucopia Crops Essential
+11018,Avocado Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Essential
+11019,Cocoa Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Essential
+11020,Pear Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Essential
+11021,Pistachio Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Essential
+11022,Adzuki Bean Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11023,Agave Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11024,Asparagus Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11025,Bamboo Shoot,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11026,Barley Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11027,Black Bean Starter,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11028,Blue Agave Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11029,Buckwheat Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11030,Butternut Squash Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11031,Cabbage Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11032,Canary Melon Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11033,Canola Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11034,Cantaloupe Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11035,Cassava Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11036,Celery Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11037,Chickpea Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11038,Daikon Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11039,Durum Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11040,Ginseng Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11041,Green Pea Strater,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11042,Groundcherry Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11043,Habanero Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11044,Honeydew Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11045,Jalapeno Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11046,Kidney Bean Starter,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11047,Navy Bean Starter,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11048,Oat Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11049,Okra Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11050,Passion Fruit Starter,progression,"CROPSANITY,GINGER_ISLAND",Cornucopia Crops Crop Extended
+11051,Pinto Bean Starter,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11052,Quinoa Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11053,Red Ontion Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11054,Shallot Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11055,Sugar Beet Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11056,Sweet Potato Seeds,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11057,Wasabi Tuber,progression,CROPSANITY,Cornucopia Crops Crop Extended
+11058,White Grape Planter,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Crop Extended
+11059,Black Currant Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Crop Extended
+11060,Chicken of the Woods Planter,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Crop Extended
+11061,Elderberry Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Crop Extended
+11062,Gooseberry Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Crop Extended
+11063,Juniper Berry Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Crop Extended
+11064,Shiitake Planter,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Crop Extended
+11065,Sapodilla Seed,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Crop Extended
+11066,Aloe Pod,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11067,Catnip Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11068,Chive Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11069,Coriander Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11070,Cumin Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11071,Dill Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11072,Fennel Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11073,Fenugreek Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11074,Lemongrass Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11075,Licorice Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11076,Majoram Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11077,Mint Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11078,Oregano Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11079,Parsley Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11080,Perilla Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11081,Rosemary Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11082,Sage Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11083,Tarragon Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11084,Thyme Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11085,Turmeric Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11086,Wormwood Seeds,progression,CROPSANITY,Cornucopia Crops Herb Extended
+11087,Bay Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Herb Extended
+11088,Camphor Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Herb Extended
+11089,Cinnamon Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Herb Extended
+11090,Eucalyptus Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Herb Extended
+11091,Melaleuca Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Herb Extended
+11092,Nutmeg Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Herb Extended
+11093,Almond Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Tree Extended
+11094,Breadfruit Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Tree Extended
+11095,Cashew Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Tree Extended
+11096,Dragon Fruit Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Tree Extended
+11097,Durian Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY,GINGER_ISLAND",Cornucopia Crops Tree Extended
+11098,Fig Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Tree Extended
+11099,Grapefruit Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Tree Extended
+11100,Lemon Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Tree Extended
+11101,Lime Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Tree Extended
+11102,Lychee Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Tree Extended
+11103,Nectarine Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Tree Extended
+11104,Papaya Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY,GINGER_ISLAND",Cornucopia Crops Tree Extended
+11105,Pecan Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Tree Extended
+11106,Persimmon Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Tree Extended
+11107,Plantain Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY,GINGER_ISLAND",Cornucopia Crops Tree Extended
+11108,Pomelo Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Tree Extended
+11109,Ume Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Tree Extended
+11110,Walnut Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Tree Extended
+11111,Yuzu Sapling,progression,"RESOURCE_PACK,RESOURCE_PACK_USEFUL,CROPSANITY",Cornucopia Crops Tree Extended

@@ -22,9 +22,11 @@ from ...logic.time_logic import TimeLogicMixin
 from ...logic.tool_logic import ToolLogicMixin
 from ...options import Cropsanity
 from ...stardew_rule import StardewRule, True_
-from ...strings.artisan_good_names import ModArtisanGood
+from ...strings.artisan_good_names import ModArtisanGood, CornArtisanGood, CornCropExtArtisanGood, ArtisanGood
 from ...strings.craftable_names import ModCraftable, ModEdible, ModMachine
-from ...strings.crop_names import SVEVegetable, SVEFruit, DistantLandsCrop
+from ...strings.crop_names import SVEVegetable, SVEFruit, DistantLandsCrop, CornVegetable, CornCropExtVegetable, CornFruit, CornCropExtFruit
+from ...strings.seed_names import CornCropExtSeed
+from ...strings.flower_names import CornCropExtFlower
 from ...strings.fish_names import ModTrash, SVEFish
 from ...strings.food_names import SVEMeal, SVEBeverage
 from ...strings.forageable_names import SVEForage, DistantLandsForageable
@@ -37,10 +39,13 @@ from ...strings.performance_names import Performance
 from ...strings.quest_names import ModQuest
 from ...strings.region_names import Region, SVERegion, DeepWoodsRegion, BoardingHouseRegion
 from ...strings.season_names import Season
-from ...strings.seed_names import SVESeed, DistantLandsSeed
+from ...strings.seed_names import SVESeed, DistantLandsSeed, CornSeed
 from ...strings.skill_names import Skill
 from ...strings.tool_names import Tool, ToolMaterial
 from ...strings.villager_names import ModNPC
+from ..strings.machine_names import Machine
+from ...strings.forageable_names import CornForageable
+from ..strings.building_names import Building
 
 display_types = [ModCraftable.wooden_display, ModCraftable.hardwood_display]
 display_items = all_artifacts + all_fossils
@@ -251,6 +256,32 @@ FarmingLogicMixin]]):
                                                                                BoardingHouseRegion.lost_valley_house_2,)) & self.logic.combat.can_fight_at_level(
                 Performance.great),
         }
+
+    def get_cornucopia_rules(self, items: Dict[str, StardewRule]):
+        return {
+            CornArtisanGood.tofu: (self.has(CornSeed.soybean) & self.has(Machine.cheese_press)),
+            ArtisanGood.cloth: items[ArtisanGood.cloth] | (self.has(CornForageable.cotton) & self.has(Machine.loom)),
+            CornArtisanGood.molasses: (self.has(CornVegetable.sugarcane) & self.building.has_building(Building.mill)),
+            Ingredient.sugar: items[Ingredient.sugar] | (self.has(CornVegetable.sugarcane) & self.building.has_building(Building.mill)),
+            Ingredient.oil: items[Ingredient.oil] | (self.has(CornVegetable.peanut) & self.has(Machine.oil_maker)),
+            CornArtisanGood.olive_oil: (self.has(CornVegetable.olive) & self.has(Machine.oil_maker))
+            }
+
+    def get_cornucopia_crop_rules(self, items: Dict[str, StardewRule]):
+        return {
+            CornCropExtArtisanGood.rubber: self.has(Machine.tapper),
+            CornCropExtArtisanGood.dark_ale: (self.has(CornCropExtVegetable.durum) & self.has(Machine.keg)),
+            CornCropExtArtisanGood.porter: (self.has(CornCropExtVegetable.buckwheat) & self.has(Machine.keg)),
+            CornCropExtArtisanGood.sparkling_wine: (self.has(CornCropExtFruit.white_grape) & self.has(Machine.keg)),
+            CornCropExtArtisanGood.stout: (self.has(CornCropExtVegetable.barley) & self.has(Machine.keg)),
+            CornCropExtArtisanGood.buckwheat_flour: (self.has(CornCropExtVegetable.buckwheat) & self.buiding.has_building(Building.mill)),
+            CornArtisanGood.molasses: items[CornCropExtArtisanGood.molasses] | (self.has(CornCropExtVegetable.sugar_beet) & self.building.has_building(Building.mill)),
+            CornCropExtArtisanGood.semolina_flour: (self.has(CornCropExtVegetable.durum) & self.building.has_building(Building.mill)),
+            Ingredient.sugar: items[Ingredient.sugar] | (self.has(CornCropExtVegetable.sugar_beet) & self.building.has_building(Building.mill)),
+            CornCropExtArtisanGood.whole_grain_flour: (self.has(CornCropExtVegetable.barley) & self.building.has_building(Building.mill)),
+            Ingredient.oil: items[Ingredient.oil] | ((self.has(CornCropExtSeed.canola) | self.has(CornCropExtFlower.canola)) & self.has(Machine.oil_maker)),
+
+               }
 
     def has_seed_unlocked(self, seed_name: str):
         if self.options.cropsanity == Cropsanity.option_disabled:

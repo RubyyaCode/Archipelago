@@ -8,3 +8,53 @@ class Sapling:
     banana = "Banana Sapling"
     mango = "Mango Sapling"
     tea = "Tea Sapling"
+
+
+class CornSapling:
+    olive = "Olive Sapling"
+    raspberry = "Raspberry Sapling"
+    peppercorn = "Peppercorn Planter"
+    vanilla = "Vanilla Sapling"
+    avocado = "Avocado Sapling"
+    cocoa = "Cocoa Sapling"
+    pear = "Pear Sapling"
+    pistachio = "Pistachio Sapling"
+
+class CornCropExtSapling:
+    white_grape = "White Grape Planter"
+    currant = "Black Currant Sapling"
+    chickwood = "Chicken of the Woods Planter"
+    elderberry = "Elderberry Sapling"
+    gooseberry = "Gooseberry Sapling"
+    juniper = "Juniper Berry Sapling"
+    shiitake = "Shiitake Planter"
+    sapodilla = "Sapodilla Seed"
+
+class CornHerbExtSapling:
+    bay = "Bay Sapling"
+    camphor = "Camphor Sapling"
+    cinnamon = "Cinnamon Sapling"
+    eucalyptus = "Eucalyptus Sapling"
+    melaleuca = "Melaleuca Sapling"
+    nutmeg = "Nutmeg Sapling"
+
+class CornTreeExtSapling:
+    almond = "Almond Sapling"
+    breadfruit = "Breadfruit Sapling"
+    cashew = "Cashew Sapling"
+    dragon_fruit = "Dragon Fruit Sapling"
+    durian = "Durian Sapling"
+    fig = "Fig Sapling"
+    grapefruit = "Grapefruit Sapling"
+    lemon = "Lemon Sapling"
+    lime = "Lime Sapling"
+    lychee = "Lychee Sapling"
+    nectarine = "Nectarine Sapling"
+    papaya = "Papaya Sapling"
+    pecan = "Pecan Sapling"
+    persimmon = "Persimmon Sapling"
+    plantain = "Plantain Sapling"
+    pomelo = "Pomelo Sapling"
+    ume = "Ume Sapling"
+    walnut = "Walnut Sapling"
+    yuzu = "Yuzu Sapling"
