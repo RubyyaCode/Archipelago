@@ -2,7 +2,11 @@ from collections import Counter
 
 from .. import SVTestBase
 from ... import options
+<<<<<<< HEAD
 from ...options import ToolProgression, SeasonRandomization, Secretsanity
+=======
+from ...options import ToolProgression, SeasonRandomization
+>>>>>>> 4cb8fa3cdd435ee646b56c06747d581d57126de8
 from ...strings.entrance_names import Entrance
 from ...strings.region_names import Region
 from ...strings.tool_names import Tool, ToolMaterial
@@ -74,7 +78,11 @@ class TestProgressiveToolsLogic(SVTestBase):
         self.assert_location_can_be_reached("Old Master Cannoli")
 
         self.remove(fall)
+<<<<<<< HEAD
         self.assert_location_cannot_be_reached("Old Master Cannoli")
+=======
+        self.assert_rule_false(rule, self.multiworld.state)
+>>>>>>> 4cb8fa3cdd435ee646b56c06747d581d57126de8
         self.remove(tuesday)
 
         green_house = self.create_item("Greenhouse")
@@ -86,7 +94,11 @@ class TestProgressiveToolsLogic(SVTestBase):
         self.assert_location_can_be_reached("Old Master Cannoli")
 
         self.remove(green_house)
+<<<<<<< HEAD
         self.assert_location_cannot_be_reached("Old Master Cannoli")
+=======
+        self.assert_rule_false(rule, self.multiworld.state)
+>>>>>>> 4cb8fa3cdd435ee646b56c06747d581d57126de8
         self.remove(friday)
 
 

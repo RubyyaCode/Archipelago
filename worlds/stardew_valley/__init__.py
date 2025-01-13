@@ -6,7 +6,10 @@ from typing import Dict, Any, Iterable, Optional, List, TextIO
 from BaseClasses import Region, Entrance, Location, Item, Tutorial, ItemClassification, MultiWorld, CollectionState
 from Options import PerGameCommonOptions
 from worlds.AutoWorld import World, WebWorld
+<<<<<<< HEAD
 from worlds.LauncherComponents import launch_subprocess, components, Component, icon_paths, Type
+=======
+>>>>>>> 4cb8fa3cdd435ee646b56c06747d581d57126de8
 from .bundles.bundle_room import BundleRoom
 from .bundles.bundles import get_all_bundles
 from .content import StardewContent, create_content
@@ -15,17 +18,24 @@ from .items import item_table, create_items, ItemData, Group, items_by_group, ge
 from .locations import location_table, create_locations, LocationData, locations_by_tag
 from .logic.logic import StardewLogic
 from .options import StardewValleyOptions, SeasonRandomization, Goal, BundleRandomization, EnabledFillerBuffs, NumberOfMovementBuffs, \
+<<<<<<< HEAD
     BuildingProgression, EntranceRandomization, FarmType
+=======
+    BuildingProgression, ExcludeGingerIsland, TrapItems, EntranceRandomization, FarmType
+>>>>>>> 4cb8fa3cdd435ee646b56c06747d581d57126de8
 from .options.forced_options import force_change_options_if_incompatible
 from .options.option_groups import sv_option_groups
 from .options.presets import sv_options_presets
 from .options.worlds_group import apply_most_restrictive_options
 from .regions import create_regions
 from .rules import set_rules
-from .stardew_rule import True_, StardewRule, HasProgressionPercent, true_
+from .stardew_rule import True_, StardewRule, HasProgressionPercent
 from .strings.ap_names.event_names import Event
 from .strings.goal_names import Goal as GoalName
+<<<<<<< HEAD
 from .strings.region_names import LogicRegion
+=======
+>>>>>>> 4cb8fa3cdd435ee646b56c06747d581d57126de8
 
 logger = logging.getLogger(__name__)
 
@@ -231,11 +241,14 @@ class StardewValleyWorld(World):
         if not building_progression.is_progressive:
             return
 
+<<<<<<< HEAD
         for building in building_progression.starting_buildings:
             item, quantity = building_progression.to_progressive_item(building)
             for _ in range(quantity):
                 self.multiworld.push_precollected(self.create_item(item))
 
+=======
+>>>>>>> 4cb8fa3cdd435ee646b56c06747d581d57126de8
     def setup_logic_events(self):
         def register_event(name: str, region: str, rule: StardewRule):
             event_location = LocationData(None, region, name)

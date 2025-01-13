@@ -826,6 +826,7 @@ disabled_mods = {ModNames.deepwoods, ModNames.magic,
 
 class Mods(OptionSet):
     """List of mods that will be included in the shuffling."""
+    visibility = Visibility.all & ~Visibility.simple_ui
     internal_name = "mods"
     display_name = "Mods"
 <<<<<<< HEAD
