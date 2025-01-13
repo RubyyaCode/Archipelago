@@ -68,4 +68,24 @@ class DistantLandsForageable:
     swamp_herb = "Swamp Herb"
 
 
+class CornucopiaCropsForageable:
+    cotton = "Cotton Boll"
+    cocoa = "Cocoa Pod"
+    pistachio = "Pistachio"
+
+class CornucopiaCropsExtendedCropsForageable:
+    chickwood = "Chicken of the Woods"
+    shiitake = "Shiitake"
+
+class CornucopiaCropsExtendedTreesForageable:
+    almond = "Almond"
+    cashew = "Cashew"
+    pecan = "Pecan"
+    walnut = "Walnut"
+
+class CornucopiaCropsExtendedHerbsForageable:
+    turmeric = "Turmeric"
+    cinnamon = "Cinnamon Sticks"
+    nutmeg = "Nutmeg"
+
 all_edible_mushrooms = tuple(all_edible_mushrooms)

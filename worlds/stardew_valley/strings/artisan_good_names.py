@@ -64,3 +64,18 @@ class ArtisanGood:
 
 class ModArtisanGood:
     pterodactyl_egg = "Pterodactyl Egg"
+
+class CornucopiaCropsArtisanGood:
+    tofu = "Tofu"
+    molasses = "Molasses"
+    olive_oil = "Olive Oil"
+
+class CornucopiaCropsExtendedCropsArtisanGood:
+    rubber = "Chicle Rubber"
+    dark_ale = "Dark Ale"
+    porter = "Porter"
+    sparkling_wine = "Sparkling Wine"
+    stout = "Stout"
+    buckwheat_flor = "Buckwheat Flour"
+    semolina_flour = "Semolina Flour"
+    whole_grain_flour = "Whole Grain Flour"

@@ -1,12 +1,15 @@
 import random
 
 from BaseClasses import get_seed
-from .. import SVTestBase, SVTestCase, allsanity_no_mods_6_x_x, allsanity_mods_6_x_x, complete_options_with_default, solo_multiworld
+from .. import SVTestBase, SVTestCase, solo_multiworld, \
+    fill_dataclass_with_default
+from ..TestGeneration import get_all_permanent_progression_items
 from ..assertion import ModAssertMixin, WorldAssertMixin
-from ... import items, Group, ItemClassification
+from ..options.presets import allsanity_no_mods_6_x_x, allsanity_mods_6_x_x
+from ... import Group, create_content
 from ... import options
 from ...items import items_by_group
-from ...options import SkillProgression, Walnutsanity
+from ...options import SkillProgression, Walnutsanity, Secretsanity
 from ...regions import RandomizationFlag, randomize_connections, create_final_connections_and_regions
 
 
@@ -62,21 +65,13 @@ class TestBaseItemGeneration(SVTestBase):
         options.Craftsanity.internal_name: options.Craftsanity.option_all,
         options.Booksanity.internal_name: options.Booksanity.option_all,
         Walnutsanity.internal_name: Walnutsanity.preset_all,
+        Secretsanity.internal_name: Secretsanity.option_all,
         options.Mods.internal_name: frozenset(options.Mods.valid_keys)
     }
 
     def test_all_progression_items_are_added_to_the_pool(self):
-        all_created_items = [item.name for item in self.multiworld.itempool]
-        # Ignore all the stuff that the algorithm chooses one of, instead of all, to fulfill logical progression
-        items_to_ignore = [event.name for event in items.events]
-        items_to_ignore.extend(deprecated.name for deprecated in items.items_by_group[Group.DEPRECATED])
-        items_to_ignore.extend(season.name for season in items.items_by_group[Group.SEASON])
-        items_to_ignore.extend(weapon.name for weapon in items.items_by_group[Group.WEAPON])
-        items_to_ignore.extend(baby.name for baby in items.items_by_group[Group.BABY])
-        items_to_ignore.extend(resource_pack.name for resource_pack in items.items_by_group[Group.RESOURCE_PACK])
-        items_to_ignore.append("The Gateway Gazette")
-        progression_items = [item for item in items.all_items if item.classification is ItemClassification.progression
-                             and item.name not in items_to_ignore]
+        all_created_items = self.get_all_created_items()
+        progression_items = get_all_permanent_progression_items()
         for progression_item in progression_items:
             with self.subTest(f"{progression_item.name}"):
                 self.assertIn(progression_item.name, all_created_items)
@@ -91,22 +86,14 @@ class TestNoGingerIslandModItemGeneration(SVTestBase):
         options.Chefsanity.internal_name: options.Chefsanity.option_all,
         options.Craftsanity.internal_name: options.Craftsanity.option_all,
         options.Booksanity.internal_name: options.Booksanity.option_all,
+        options.Secretsanity.internal_name: options.Secretsanity.option_all,
         options.ExcludeGingerIsland.internal_name: options.ExcludeGingerIsland.option_true,
         options.Mods.internal_name: frozenset(options.Mods.valid_keys)
     }
 
     def test_all_progression_items_except_island_are_added_to_the_pool(self):
-        all_created_items = [item.name for item in self.multiworld.itempool]
-        # Ignore all the stuff that the algorithm chooses one of, instead of all, to fulfill logical progression
-        items_to_ignore = [event.name for event in items.events]
-        items_to_ignore.extend(deprecated.name for deprecated in items.items_by_group[Group.DEPRECATED])
-        items_to_ignore.extend(season.name for season in items.items_by_group[Group.SEASON])
-        items_to_ignore.extend(weapon.name for weapon in items.items_by_group[Group.WEAPON])
-        items_to_ignore.extend(baby.name for baby in items.items_by_group[Group.BABY])
-        items_to_ignore.extend(resource_pack.name for resource_pack in items.items_by_group[Group.RESOURCE_PACK])
-        items_to_ignore.append("The Gateway Gazette")
-        progression_items = [item for item in items.all_items if item.classification is ItemClassification.progression
-                             and item.name not in items_to_ignore]
+        all_created_items = self.get_all_created_items()
+        progression_items = get_all_permanent_progression_items()
         for progression_item in progression_items:
             with self.subTest(f"{progression_item.name}"):
                 if Group.GINGER_ISLAND in progression_item.groups:
@@ -122,18 +109,19 @@ class TestModEntranceRando(SVTestCase):
                              (options.EntranceRandomization.option_non_progression, RandomizationFlag.NON_PROGRESSION),
                              (options.EntranceRandomization.option_buildings_without_house, RandomizationFlag.BUILDINGS),
                              (options.EntranceRandomization.option_buildings, RandomizationFlag.BUILDINGS)]:
-            sv_options = complete_options_with_default({
+            sv_options = fill_dataclass_with_default({
                 options.EntranceRandomization.internal_name: option,
                 options.ExcludeGingerIsland.internal_name: options.ExcludeGingerIsland.option_false,
                 SkillProgression.internal_name: SkillProgression.option_progressive_with_masteries,
                 options.Mods.internal_name: frozenset(options.Mods.valid_keys)
             })
+            content = create_content(sv_options)
             seed = get_seed()
             rand = random.Random(seed)
             with self.subTest(option=option, flag=flag, seed=seed):
                 final_connections, final_regions = create_final_connections_and_regions(sv_options)
 
-                _, randomized_connections = randomize_connections(rand, sv_options, final_regions, final_connections)
+                _, randomized_connections = randomize_connections(rand, sv_options, content, final_regions, final_connections)
 
                 for connection_name in final_connections:
                     connection = final_connections[connection_name]

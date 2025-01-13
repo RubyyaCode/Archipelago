@@ -5,3 +5,9 @@ class Flower:
     summer_spangle = "Summer Spangle"
     sunflower = "Sunflower"
     tulip = "Tulip"
+
+class CornucopiaCropsFlower:
+    vanilla = "Vanilla"
+
+class CornucopiaCropsExtendedCropsFlower:
+    canola = "Canola Flower"
