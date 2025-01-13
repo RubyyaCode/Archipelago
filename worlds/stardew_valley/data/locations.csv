@@ -98,8 +98,8 @@ id,region,name,tags,mod_name
 98,Vault,Carnival Bundle,"BUNDLE,COMMUNITY_CENTER_BUNDLE,VAULT_BUNDLE",
 99,Vault,Walnut Hunter Bundle,"BUNDLE,COMMUNITY_CENTER_BUNDLE,VAULT_BUNDLE",
 100,Vault,Qi's Helper Bundle,"BUNDLE,COMMUNITY_CENTER_BUNDLE,VAULT_BUNDLE",
-101,Pierre's General Store,Large Pack,BACKPACK,
-102,Pierre's General Store,Deluxe Pack,BACKPACK,
+101,Pierre's General Store,Large Pack,"BACKPACK,BACKPACK_TIER",
+102,Pierre's General Store,Deluxe Pack,"BACKPACK,BACKPACK_TIER",
 103,Blacksmith Copper Upgrades,Copper Hoe Upgrade,"HOE_UPGRADE,TOOL_UPGRADE",
 104,Blacksmith Iron Upgrades,Iron Hoe Upgrade,"HOE_UPGRADE,TOOL_UPGRADE",
 105,Blacksmith Gold Upgrades,Gold Hoe Upgrade,"HOE_UPGRADE,TOOL_UPGRADE",
@@ -177,6 +177,42 @@ id,region,name,tags,mod_name
 237,The Mines - Floor 120,Floor 120 Elevator,ELEVATOR,
 250,Shipping,Demetrius's Breakthrough,MANDATORY,
 251,Volcano - Floor 10,Volcano Caldera Treasure,"GINGER_ISLAND,MANDATORY",
+161,Pierre's General Store,Small Pack 1,"BACKPACK,SPLIT_BACKPACK,STARTING_TOOLS",
+162,Pierre's General Store,Small Pack 2,"BACKPACK,SPLIT_BACKPACK,STARTING_TOOLS",
+163,Pierre's General Store,Small Pack 3,"BACKPACK,SPLIT_BACKPACK,STARTING_TOOLS",
+164,Pierre's General Store,Small Pack 4,"BACKPACK,SPLIT_BACKPACK,STARTING_TOOLS",
+165,Pierre's General Store,Small Pack 5,"BACKPACK,SPLIT_BACKPACK,STARTING_TOOLS",
+166,Pierre's General Store,Small Pack 6,"BACKPACK,SPLIT_BACKPACK,STARTING_TOOLS",
+167,Pierre's General Store,Small Pack 7,"BACKPACK,SPLIT_BACKPACK,STARTING_TOOLS",
+168,Pierre's General Store,Small Pack 8,"BACKPACK,SPLIT_BACKPACK,STARTING_TOOLS",
+169,Pierre's General Store,Small Pack 9,"BACKPACK,SPLIT_BACKPACK,STARTING_TOOLS",
+170,Pierre's General Store,Small Pack 10,"BACKPACK,SPLIT_BACKPACK,STARTING_TOOLS",
+171,Pierre's General Store,Small Pack 11,"BACKPACK,SPLIT_BACKPACK,STARTING_TOOLS",
+172,Pierre's General Store,Small Pack 12,"BACKPACK,SPLIT_BACKPACK,STARTING_TOOLS",
+174,Pierre's General Store,Large Pack 1,"BACKPACK,SPLIT_BACKPACK",
+175,Pierre's General Store,Large Pack 2,"BACKPACK,SPLIT_BACKPACK",
+176,Pierre's General Store,Large Pack 3,"BACKPACK,SPLIT_BACKPACK",
+177,Pierre's General Store,Large Pack 4,"BACKPACK,SPLIT_BACKPACK",
+178,Pierre's General Store,Large Pack 5,"BACKPACK,SPLIT_BACKPACK",
+179,Pierre's General Store,Large Pack 6,"BACKPACK,SPLIT_BACKPACK",
+180,Pierre's General Store,Large Pack 7,"BACKPACK,SPLIT_BACKPACK",
+181,Pierre's General Store,Large Pack 8,"BACKPACK,SPLIT_BACKPACK",
+182,Pierre's General Store,Large Pack 9,"BACKPACK,SPLIT_BACKPACK",
+183,Pierre's General Store,Large Pack 10,"BACKPACK,SPLIT_BACKPACK",
+184,Pierre's General Store,Large Pack 11,"BACKPACK,SPLIT_BACKPACK",
+185,Pierre's General Store,Large Pack 12,"BACKPACK,SPLIT_BACKPACK",
+187,Pierre's General Store,Deluxe Pack 1,"BACKPACK,SPLIT_BACKPACK",
+188,Pierre's General Store,Deluxe Pack 2,"BACKPACK,SPLIT_BACKPACK",
+189,Pierre's General Store,Deluxe Pack 3,"BACKPACK,SPLIT_BACKPACK",
+190,Pierre's General Store,Deluxe Pack 4,"BACKPACK,SPLIT_BACKPACK",
+191,Pierre's General Store,Deluxe Pack 5,"BACKPACK,SPLIT_BACKPACK",
+192,Pierre's General Store,Deluxe Pack 6,"BACKPACK,SPLIT_BACKPACK",
+193,Pierre's General Store,Deluxe Pack 7,"BACKPACK,SPLIT_BACKPACK",
+194,Pierre's General Store,Deluxe Pack 8,"BACKPACK,SPLIT_BACKPACK",
+195,Pierre's General Store,Deluxe Pack 9,"BACKPACK,SPLIT_BACKPACK",
+196,Pierre's General Store,Deluxe Pack 10,"BACKPACK,SPLIT_BACKPACK",
+197,Pierre's General Store,Deluxe Pack 11,"BACKPACK,SPLIT_BACKPACK",
+198,Pierre's General Store,Deluxe Pack 12,"BACKPACK,SPLIT_BACKPACK",
 301,Farm,Level 1 Farming,"FARMING_LEVEL,SKILL_LEVEL",
 302,Farm,Level 2 Farming,"FARMING_LEVEL,SKILL_LEVEL",
 303,Farm,Level 3 Farming,"FARMING_LEVEL,SKILL_LEVEL",
@@ -321,14 +357,14 @@ id,region,name,tags,mod_name
 619,Junimo Kart 3,Junimo Kart: Red Hot Rollercoaster,"ARCADE_MACHINE,JUNIMO_KART",
 620,JotPK World 3,Journey of the Prairie King Victory,"ARCADE_MACHINE_VICTORY,JOTPK",
 621,Junimo Kart 4,Junimo Kart: Sunset Speedway (Victory),"ARCADE_MACHINE_VICTORY,JUNIMO_KART",
-701,Secret Woods,Old Master Cannoli,MANDATORY,
+701,Secret Woods,Old Master Cannoli,"SECRETSANITY,SIMPLE_SECRET",
 702,Beach,Beach Bridge Repair,MANDATORY,
 703,Desert,Galaxy Sword Shrine,MANDATORY,
 704,Farmhouse,Have a Baby,BABY,
 705,Farmhouse,Have Another Baby,BABY,
 706,Farmhouse,Spouse Stardrop,,
 707,Sewer,Krobus Stardrop,MANDATORY,
-708,Forest,Pot Of Gold,MANDATORY,
+708,Forest,Pot Of Gold,"SECRETSANITY,SIMPLE_SECRET",
 801,Forest,Help Wanted: Gathering 1,HELP_WANTED,
 802,Forest,Help Wanted: Gathering 2,HELP_WANTED,
 803,Forest,Help Wanted: Gathering 3,HELP_WANTED,
@@ -2410,6 +2446,55 @@ id,region,name,tags,mod_name
 4192,Pirate Cove,Pirate Darts 2,"WALNUTSANITY,WALNUTSANITY_PUZZLE",
 4193,Pirate Cove,Pirate Darts 3,"WALNUTSANITY,WALNUTSANITY_PUZZLE",
 4194,Pirate Cove,Pirate Cove Patch Of Sand,"WALNUTSANITY,WALNUTSANITY_DIG",
+
+4201,Luau,Poison The Governor,"SECRETSANITY,SIMPLE_SECRET",
+4202,Stardew Valley Fair,Grange Display Bribe,"SECRETSANITY,SIMPLE_SECRET",
+4203,Stardew Valley Fair,Purple Lettuce,"SECRETSANITY,SIMPLE_SECRET",
+4204,Marnie's Ranch,Make Marnie Laugh,"SECRETSANITY,SIMPLE_SECRET",
+4205,Mayor's Manor,Jumpscare Lewis,"SECRETSANITY,SIMPLE_SECRET",
+4206,Marnie's Ranch,Confront Marnie,"SECRETSANITY,SIMPLE_SECRET",
+4207,Fishing,Lucky Purple Bobber,"SECRETSANITY,SIMPLE_SECRET",
+4208,Witch's Hut,Free The Forsaken Souls,"SECRETSANITY,DIFFICULT_SECRET",
+4209,Feast of the Winter Star,Something For Santa,"SECRETSANITY,SIMPLE_SECRET",
+4210,Menu,Thank the Devs,"SECRETSANITY,DIFFICULT_SECRET",
+4211,Menu,Annoy the Moon Man,"SECRETSANITY,DIFFICULT_SECRET",
+4212,Menu,Acknowledge the Lonely Stone,"SECRETSANITY,SIMPLE_SECRET",
+4213,Menu,Take In The Nature,"SECRETSANITY,SIMPLE_SECRET",
+4214,Town,??HMTGF??,"SECRETSANITY,SIMPLE_SECRET",
+4215,Saloon,??Pinky Lemon??,"SECRETSANITY,SIMPLE_SECRET",
+4216,Sam's House,??Foroguemon??,"SECRETSANITY,SIMPLE_SECRET",
+4217,Town,Galaxies Will Heed Your Cry,"SECRETSANITY,SIMPLE_SECRET",
+4218,Town,Junimo Plush,"SECRETSANITY,SIMPLE_SECRET",
+4219,Town,Strange Sighting,"SECRETSANITY,DIFFICULT_SECRET",
+4220,Farm,'Boat',"SECRETSANITY,BEACH_FARM,FISHING_SECRET",
+4221,Town,Decorative Trash Can,"SECRETSANITY,FISHING_SECRET",
+4222,Island North,Foliage Print,"SECRETSANITY,FISHING_SECRET,GINGER_ISLAND",
+4223,Gourmand Frog Cave,Frog Hat,"SECRETSANITY,FISHING_SECRET,GINGER_ISLAND",
+4224,Pirate Cove,Gourmand Statue,"SECRETSANITY,FISHING_SECRET,GINGER_ISLAND",
+4225,Forest,Iridium Krobus,"SECRETSANITY,FISHING_SECRET",
+4226,Boat Tunnel,Lifesaver,"SECRETSANITY,FISHING_SECRET,GINGER_ISLAND",
+4227,Volcano - Floor 10,'Physics 101',"SECRETSANITY,FISHING_SECRET,GINGER_ISLAND",
+4228,Desert,Pyramid Decal,"SECRETSANITY,FISHING_SECRET",
+4229,Volcano Secret Beach,Squirrel Figurine,"SECRETSANITY,FISHING_SECRET,GINGER_ISLAND",
+4230,Railroad,'Vista',"SECRETSANITY,FISHING_SECRET",
+4231,Secret Woods,Wall Basket,"SECRETSANITY,FISHING_SECRET",
+4232,The Mines - Floor 100,Summon Bone Serpent,"SECRETSANITY,SIMPLE_SECRET",
+4233,Wizard Basement,Meowmere,"SECRETSANITY,SIMPLE_SECRET",
+4234,Elliott's House,A Familiar Tune,"SECRETSANITY,SIMPLE_SECRET",
+4235,Beach,Merperson Sighting,"SECRETSANITY,DIFFICULT_SECRET",
+4236,Forest,...Bigfoot?,"SECRETSANITY,DIFFICULT_SECRET",
+4237,Farmhouse,Flubber Experiment,"SECRETSANITY,SIMPLE_SECRET",
+4238,Wizard Basement,Seems Fishy,"SECRETSANITY,SIMPLE_SECRET",
+4239,Railroad,'Me me me me me me me me me me me me me me me me',"SECRETSANITY,DIFFICULT_SECRET",
+4240,Menu,Nice Try,"SECRETSANITY,SIMPLE_SECRET",
+4241,Menu,Enjoy your new life here,"SECRETSANITY,SIMPLE_SECRET",
+4242,Menu,"What'd you expect?","SECRETSANITY,SIMPLE_SECRET",
+4243,Farm,Secret Iridium Stackmaster Trophy,"SECRETSANITY,DIFFICULT_SECRET",
+4244,Willy's Fish Shop,What kind of monster is this?,"SECRETSANITY,SIMPLE_SECRET",
+4245,Pierre's General Store,My mouth is watering already,"SECRETSANITY,SIMPLE_SECRET",
+4246,Sewer,A gift of lovely perfume,"SECRETSANITY,SIMPLE_SECRET",
+4247,Mines Dwarf Shop,Where exactly does this juice come from?,"SECRETSANITY,SIMPLE_SECRET",
+
 5001,Stardew Valley,Level 1 Luck,"LUCK_LEVEL,SKILL_LEVEL",Luck Skill
 5002,Stardew Valley,Level 2 Luck,"LUCK_LEVEL,SKILL_LEVEL",Luck Skill
 5003,Stardew Valley,Level 3 Luck,"LUCK_LEVEL,SKILL_LEVEL",Luck Skill
@@ -2865,7 +2950,7 @@ id,region,name,tags,mod_name
 6372,The Lost Valley,Friendsanity: Gregory 12 <3,FRIENDSANITY,Boarding House and Bus Stop Extension
 6373,The Lost Valley,Friendsanity: Gregory 13 <3,FRIENDSANITY,Boarding House and Bus Stop Extension
 6374,The Lost Valley,Friendsanity: Gregory 14 <3,FRIENDSANITY,Boarding House and Bus Stop Extension
-7001,Pierre's General Store,Premium Pack,BACKPACK,Bigger Backpack
+7001,Pierre's General Store,Premium Pack,"BACKPACK,BACKPACK_TIER",Bigger Backpack
 7002,Carpenter Shop,Tractor Garage Blueprint,BUILDING_BLUEPRINT,Tractor Mod
 7003,The Deep Woods Depth 100,Pet the Deep Woods Unicorn,MANDATORY,DeepWoods
 7004,The Deep Woods Depth 50,Breaking Up Deep Woods Gingerbread House,MANDATORY,DeepWoods
@@ -2900,6 +2985,18 @@ id,region,name,tags,mod_name
 7055,Abandoned Mines - 3,Abandoned Treasure - Floor 3,MANDATORY,Boarding House and Bus Stop Extension
 7056,Abandoned Mines - 4,Abandoned Treasure - Floor 4,MANDATORY,Boarding House and Bus Stop Extension
 7057,Abandoned Mines - 5,Abandoned Treasure - Floor 5,MANDATORY,Boarding House and Bus Stop Extension
+7101,Pierre's General Store,Premium Pack 1,"BACKPACK,SPLIT_BACKPACK",Bigger Backpack
+7102,Pierre's General Store,Premium Pack 2,"BACKPACK,SPLIT_BACKPACK",Bigger Backpack
+7103,Pierre's General Store,Premium Pack 3,"BACKPACK,SPLIT_BACKPACK",Bigger Backpack
+7104,Pierre's General Store,Premium Pack 4,"BACKPACK,SPLIT_BACKPACK",Bigger Backpack
+7105,Pierre's General Store,Premium Pack 5,"BACKPACK,SPLIT_BACKPACK",Bigger Backpack
+7106,Pierre's General Store,Premium Pack 6,"BACKPACK,SPLIT_BACKPACK",Bigger Backpack
+7107,Pierre's General Store,Premium Pack 7,"BACKPACK,SPLIT_BACKPACK",Bigger Backpack
+7108,Pierre's General Store,Premium Pack 8,"BACKPACK,SPLIT_BACKPACK",Bigger Backpack
+7109,Pierre's General Store,Premium Pack 9,"BACKPACK,SPLIT_BACKPACK",Bigger Backpack
+7110,Pierre's General Store,Premium Pack 10,"BACKPACK,SPLIT_BACKPACK",Bigger Backpack
+7111,Pierre's General Store,Premium Pack 11,"BACKPACK,SPLIT_BACKPACK",Bigger Backpack
+7112,Pierre's General Store,Premium Pack 12,"BACKPACK,SPLIT_BACKPACK",Bigger Backpack
 7401,Farm,Cook Magic Elixir,COOKSANITY,Magic
 7402,Farm,Craft Travel Core,CRAFTSANITY,Magic
 7403,Farm,Craft Haste Elixir,CRAFTSANITY,Stardew Valley Expanded

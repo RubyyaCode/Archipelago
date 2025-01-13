@@ -15,14 +15,16 @@ from .data.game_item import ItemTag
 from .logic.logic_event import all_events
 from .mods.mod_data import ModNames
 from .options import StardewValleyOptions, TrapItems, FestivalLocations, ExcludeGingerIsland, SpecialOrderLocations, SeasonRandomization, Museumsanity, \
-    BuildingProgression, ToolProgression, ElevatorProgression, BackpackProgression, ArcadeMachineLocations, Monstersanity, Goal, \
-    Chefsanity, Craftsanity, BundleRandomization, EntranceRandomization, Shipsanity, Walnutsanity, EnabledFillerBuffs
+    ElevatorProgression, BackpackProgression, ArcadeMachineLocations, Monstersanity, Goal, \
+    Chefsanity, Craftsanity, BundleRandomization, EntranceRandomization, Shipsanity, Walnutsanity, EnabledFillerBuffs, Secretsanity
 from .strings.ap_names.ap_option_names import BuffOptionName, WalnutsanityOptionName
 from .strings.ap_names.ap_weapon_names import APWeapon
 from .strings.ap_names.buff_names import Buff
 from .strings.ap_names.community_upgrade_names import CommunityUpgrade
 from .strings.ap_names.mods.mod_items import SVEQuestItem
+from .strings.backpack_tiers import Backpack
 from .strings.currency_names import Currency
+from .strings.tool_names import Tool
 from .strings.wallet_item_names import Wallet
 
 ITEM_CODE_OFFSET = 717000
@@ -88,6 +90,8 @@ class Group(enum.Enum):
     BOOK_POWER = enum.auto()
     LOST_BOOK = enum.auto()
     PLAYER_BUFF = enum.auto()
+    SIMPLE_SECRET = enum.auto()
+    FISHING_SECRET = enum.auto()
     # Mods
     MAGIC_SPELL = enum.auto()
     MOD_WARP = enum.auto()
@@ -116,11 +120,6 @@ class ItemData:
 
 class StardewItemFactory(Protocol):
     def __call__(self, name: Union[str, ItemData], override_classification: ItemClassification = None) -> Item:
-        raise NotImplementedError
-
-
-class StardewItemDeleter(Protocol):
-    def __call__(self, item: Item):
         raise NotImplementedError
 
 
@@ -226,10 +225,10 @@ def create_unique_items(item_factory: StardewItemFactory, options: StardewValley
     create_weapons(item_factory, options, items)
     items.append(item_factory("Skull Key"))
     create_elevators(item_factory, options, items)
-    create_tools(item_factory, options, content, items)
+    create_tools(item_factory, content, items)
     create_skills(item_factory, content, items)
     create_wizard_buildings(item_factory, options, items)
-    create_carpenter_buildings(item_factory, options, items)
+    create_carpenter_buildings(item_factory, content, items)
     items.append(item_factory("Railroad Boulder Removed"))
     items.append(item_factory(CommunityUpgrade.fruit_bats))
     items.append(item_factory(CommunityUpgrade.mushroom_boxes))
@@ -254,6 +253,7 @@ def create_unique_items(item_factory: StardewItemFactory, options: StardewValley
     create_cooking_recipes(item_factory, options, items)
     create_shipsanity_items(item_factory, options, items)
     create_booksanity_items(item_factory, content, items)
+    create_secrets_items(item_factory, options, items)
     create_goal_items(item_factory, options, items)
     items.append(item_factory("Golden Egg"))
     items.append(item_factory(CommunityUpgrade.mr_qi_plane_ride))
@@ -276,11 +276,12 @@ def create_raccoons(item_factory: StardewItemFactory, options: StardewValleyOpti
 
 
 def create_backpack_items(item_factory: StardewItemFactory, options: StardewValleyOptions, items: List[Item]):
-    if (options.backpack_progression == BackpackProgression.option_progressive or
-            options.backpack_progression == BackpackProgression.option_early_progressive):
-        items.extend(item_factory(item) for item in ["Progressive Backpack"] * 2)
-        if ModNames.big_backpack in options.mods:
-            items.append(item_factory("Progressive Backpack"))
+    if options.backpack_progression == BackpackProgression.option_vanilla:
+        return
+    num_per_tier = options.backpack_size.count_per_tier()
+    backpack_tier_names = Backpack.get_purchasable_tiers(ModNames.big_backpack in options.mods)
+    num_backpacks = len(backpack_tier_names) * num_per_tier
+    items.extend(item_factory(item) for item in ["Progressive Backpack"] * num_backpacks)
 
 
 def create_weapons(item_factory: StardewItemFactory, options: StardewValleyOptions, items: List[Item]):
@@ -317,23 +318,17 @@ def create_elevators(item_factory: StardewItemFactory, options: StardewValleyOpt
         items.extend([item_factory(item) for item in ["Progressive Skull Cavern Elevator"] * 8])
 
 
-def create_tools(item_factory: StardewItemFactory, options: StardewValleyOptions, content: StardewContent, items: List[Item]):
-    if options.tool_progression & ToolProgression.option_progressive:
-        for item_data in items_by_group[Group.PROGRESSIVE_TOOLS]:
-            name = item_data.name
-            if "Trash Can" in name:
-                items.extend([item_factory(item) for item in [item_data] * 3])
-                items.append(item_factory(item_data, ItemClassification.useful))
-            else:
-                items.extend([item_factory(item) for item in [item_data] * 4])
+def create_tools(item_factory: StardewItemFactory, content: StardewContent, items: List[Item]):
+    tool_progression = content.features.tool_progression
+    for tool, count in tool_progression.tool_distribution.items():
+        item = item_table[tool_progression.to_progressive_item(tool)]
 
-        if content.features.skill_progression.are_masteries_shuffled:
-            # Masteries add another tier to the scythe and the fishing rod
-            items.append(item_factory("Progressive Scythe"))
-            items.append(item_factory("Progressive Fishing Rod"))
+        # Trash can is only used in tool upgrade logic, so the last trash can is not progression because it basically does not unlock anything.
+        if tool == Tool.trash_can:
+            count -= 1
+            items.append(item_factory(item, ItemClassification.useful))
 
-    # The golden scythe is always randomized
-    items.append(item_factory("Progressive Scythe"))
+        items.extend([item_factory(item) for _ in range(count)])
 
 
 def create_skills(item_factory: StardewItemFactory, content: StardewContent, items: List[Item]):
@@ -364,30 +359,14 @@ def create_wizard_buildings(item_factory: StardewItemFactory, options: StardewVa
         items.append(item_factory("Woods Obelisk"))
 
 
-def create_carpenter_buildings(item_factory: StardewItemFactory, options: StardewValleyOptions, items: List[Item]):
-    building_option = options.building_progression
-    if not building_option & BuildingProgression.option_progressive:
+def create_carpenter_buildings(item_factory: StardewItemFactory, content: StardewContent, items: List[Item]):
+    building_progression = content.features.building_progression
+    if not building_progression.is_progressive:
         return
-    items.append(item_factory("Progressive Coop"))
-    items.append(item_factory("Progressive Coop"))
-    items.append(item_factory("Progressive Coop"))
-    items.append(item_factory("Progressive Barn"))
-    items.append(item_factory("Progressive Barn"))
-    items.append(item_factory("Progressive Barn"))
-    items.append(item_factory("Well"))
-    items.append(item_factory("Silo"))
-    items.append(item_factory("Mill"))
-    items.append(item_factory("Progressive Shed"))
-    items.append(item_factory("Progressive Shed", ItemClassification.useful))
-    items.append(item_factory("Fish Pond"))
-    items.append(item_factory("Stable"))
-    items.append(item_factory("Slime Hutch"))
-    items.append(item_factory("Shipping Bin"))
-    items.append(item_factory("Progressive House"))
-    items.append(item_factory("Progressive House"))
-    items.append(item_factory("Progressive House"))
-    if ModNames.tractor in options.mods:
-        items.append(item_factory("Tractor Garage"))
+
+    for building in content.farm_buildings.values():
+        item_name, _ = building_progression.to_progressive_item(building.name)
+        items.append(item_factory(item_name))
 
 
 def create_quest_rewards(item_factory: StardewItemFactory, options: StardewValleyOptions, items: List[Item]):
@@ -434,6 +413,9 @@ def create_stardrops(item_factory: StardewItemFactory, options: StardewValleyOpt
         items.append(item_factory("Stardrop", stardrops_classification))  # Petting the Unicorn
     if content.features.friendsanity.is_enabled:
         items.append(item_factory("Stardrop", stardrops_classification))  # Spouse Stardrop
+    if options.secretsanity >= Secretsanity.option_all:
+        # Always Progression as a different secret requires a stardrop
+        items.append(item_factory("Stardrop", ItemClassification.progression))  # Old Master Cannoli.
 
 
 def create_museum_items(item_factory: StardewItemFactory, options: StardewValleyOptions, items: List[Item]):
@@ -657,6 +639,16 @@ def create_booksanity_items(item_factory: StardewItemFactory, content: StardewCo
     items.extend(item_factory(progressive_lost_book) for _ in content.features.booksanity.get_randomized_lost_books())
 
 
+def create_secrets_items(item_factory: StardewItemFactory, options: StardewValleyOptions, items: List[Item]):
+    if options.secretsanity == Secretsanity.option_none:
+        return
+
+    if options.secretsanity >= Secretsanity.option_simple:
+        items.extend(item_factory(item) for item in items_by_group[Group.SIMPLE_SECRET])
+    if options.secretsanity >= Secretsanity.option_simple_and_fishing:
+        items.extend(item_factory(item) for item in items_by_group[Group.FISHING_SECRET])
+
+
 def create_goal_items(item_factory: StardewItemFactory, options: StardewValleyOptions, items: List[Item]):
     goal = options.goal
     if goal != Goal.option_perfection and goal != Goal.option_complete_collection:
@@ -817,6 +809,16 @@ def remove_excluded_items_island_mods(items, exclude_ginger_island: bool, mods: 
     ginger_island_filter = filter_ginger_island_items(exclude_ginger_island, deprecated_filter)
     mod_filter = filter_mod_items(mods, ginger_island_filter)
     return mod_filter
+
+
+def generate_filler_choice_pool(options: StardewValleyOptions) -> list[str]:
+    include_traps = options.trap_items != TrapItems.option_no_traps
+    exclude_island = options.exclude_ginger_island == ExcludeGingerIsland.option_true
+
+    available_filler = get_all_filler_items(include_traps, exclude_island)
+    available_filler = remove_limited_amount_packs(available_filler)
+
+    return [item.name for item in available_filler]
 
 
 def remove_limited_amount_packs(packs):

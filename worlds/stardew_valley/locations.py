@@ -11,8 +11,10 @@ from .data.game_item import ItemTag
 from .data.museum_data import all_museum_items
 from .mods.mod_data import ModNames
 from .options import ExcludeGingerIsland, ArcadeMachineLocations, SpecialOrderLocations, Museumsanity, \
-    FestivalLocations, BuildingProgression, ToolProgression, ElevatorProgression, BackpackProgression, FarmType
+    FestivalLocations, ElevatorProgression, BackpackProgression, FarmType
 from .options import StardewValleyOptions, Craftsanity, Chefsanity, Cooksanity, Shipsanity, Monstersanity
+from .options.options import BackpackSize, Secretsanity
+from .strings.backpack_tiers import Backpack
 from .strings.goal_names import Goal
 from .strings.quest_names import ModQuest, Quest
 from .strings.region_names import Region, LogicRegion
@@ -34,6 +36,8 @@ class LocationTags(enum.Enum):
     COMMUNITY_CENTER_ROOM = enum.auto()
     RACCOON_BUNDLES = enum.auto()
     BACKPACK = enum.auto()
+    BACKPACK_TIER = enum.auto()
+    SPLIT_BACKPACK = enum.auto()
     TOOL_UPGRADE = enum.auto()
     HOE_UPGRADE = enum.auto()
     PICKAXE_UPGRADE = enum.auto()
@@ -42,6 +46,7 @@ class LocationTags(enum.Enum):
     TRASH_CAN_UPGRADE = enum.auto()
     FISHING_ROD_UPGRADE = enum.auto()
     PAN_UPGRADE = enum.auto()
+    STARTING_TOOLS = enum.auto()
     THE_MINES_TREASURE = enum.auto()
     CROPSANITY = enum.auto()
     ELEVATOR = enum.auto()
@@ -101,6 +106,12 @@ class LocationTags(enum.Enum):
     BOOKSANITY_POWER = enum.auto()
     BOOKSANITY_SKILL = enum.auto()
     BOOKSANITY_LOST = enum.auto()
+    SECRETSANITY = enum.auto()
+    SIMPLE_SECRET = enum.auto()
+    FISHING_SECRET = enum.auto()
+    DIFFICULT_SECRET = enum.auto()
+
+    BEACH_FARM = enum.auto()
     # Mods
     # Skill Mods
     LUCK_LEVEL = enum.auto()
@@ -259,6 +270,19 @@ def extend_baby_locations(randomized_locations: List[LocationData]):
     randomized_locations.extend(baby_locations)
 
 
+def extend_building_locations(randomized_locations: List[LocationData], content: StardewContent):
+    building_progression = content.features.building_progression
+    if not building_progression.is_progressive:
+        return
+
+    for building in content.farm_buildings.values():
+        if building.name in building_progression.starting_buildings:
+            continue
+
+        location_name = building_progression.to_location_name(building.name)
+        randomized_locations.append(location_table[location_name])
+
+
 def extend_festival_locations(randomized_locations: List[LocationData], options: StardewValleyOptions, random: Random):
     if options.festival_locations == FestivalLocations.option_disabled:
         return
@@ -336,7 +360,18 @@ def extend_bundle_locations(randomized_locations: List[LocationData], bundle_roo
 def extend_backpack_locations(randomized_locations: List[LocationData], options: StardewValleyOptions):
     if options.backpack_progression == BackpackProgression.option_vanilla:
         return
-    backpack_locations = [location for location in locations_by_tag[LocationTags.BACKPACK]]
+
+    if options.backpack_size == BackpackSize.option_12:
+        backpack_locations = [location for location in locations_by_tag[LocationTags.BACKPACK_TIER]]
+    else:
+        num_per_tier = options.backpack_size.count_per_tier()
+        backpack_tier_names = Backpack.get_purchasable_tiers(ModNames.big_backpack in options.mods)
+        backpack_locations = []
+        for tier in backpack_tier_names:
+            for i in range(1, num_per_tier + 1):
+                backpack_locations.append(location_table[f"{tier} {i}"])
+                i += 1
+
     filtered_backpack_locations = filter_modded_locations(options, backpack_locations)
     randomized_locations.extend(filtered_backpack_locations)
 
@@ -460,6 +495,21 @@ def extend_walnutsanity_locations(randomized_locations: List[LocationData], opti
         randomized_locations.extend(locations_by_tag[LocationTags.WALNUTSANITY_REPEATABLE])
 
 
+def extend_secrets_locations(randomized_locations: List[LocationData], options: StardewValleyOptions, content: StardewContent):
+    if options.secretsanity == Secretsanity.option_none:
+        return
+
+    locations = []
+    if options.secretsanity >= Secretsanity.option_simple:
+        locations.extend(locations_by_tag[LocationTags.SIMPLE_SECRET])
+    if options.secretsanity >= Secretsanity.option_simple_and_fishing:
+        locations.extend(locations_by_tag[LocationTags.FISHING_SECRET])
+    if options.secretsanity >= Secretsanity.option_all:
+        locations.extend(locations_by_tag[LocationTags.DIFFICULT_SECRET])
+    locations = filter_disabled_locations(options, content, locations)
+    randomized_locations.extend(locations)
+
+
 def create_locations(location_collector: StardewLocationCollector,
                      bundle_rooms: List[BundleRoom],
                      options: StardewValleyOptions,
@@ -471,7 +521,7 @@ def create_locations(location_collector: StardewLocationCollector,
     extend_bundle_locations(randomized_locations, bundle_rooms)
     extend_backpack_locations(randomized_locations, options)
 
-    if options.tool_progression & ToolProgression.option_progressive:
+    if content.features.tool_progression.is_progressive:
         randomized_locations.extend(locations_by_tag[LocationTags.TOOL_UPGRADE])
 
     extend_elevator_locations(randomized_locations, options)
@@ -483,10 +533,7 @@ def create_locations(location_collector: StardewLocationCollector,
             if skill_progression.is_mastery_randomized(skill):
                 randomized_locations.append(location_table[skill.mastery_name])
 
-    if options.building_progression & BuildingProgression.option_progressive:
-        for location in locations_by_tag[LocationTags.BUILDING_BLUEPRINT]:
-            if location.mod_name is None or location.mod_name in options.mods:
-                randomized_locations.append(location_table[location.name])
+    extend_building_locations(randomized_locations, content)
 
     if options.arcade_machine_locations != ArcadeMachineLocations.option_disabled:
         randomized_locations.extend(locations_by_tag[LocationTags.ARCADE_MACHINE_VICTORY])
@@ -511,6 +558,7 @@ def create_locations(location_collector: StardewLocationCollector,
     extend_quests_locations(randomized_locations, options, content)
     extend_book_locations(randomized_locations, content)
     extend_walnutsanity_locations(randomized_locations, options)
+    extend_secrets_locations(randomized_locations, options, content)
 
     # Mods
     extend_situational_quest_locations(randomized_locations, options)
@@ -519,12 +567,25 @@ def create_locations(location_collector: StardewLocationCollector,
         location_collector(location_data.name, location_data.code, location_data.region)
 
 
-def filter_farm_type(options: StardewValleyOptions, locations: Iterable[LocationData]) -> Iterable[LocationData]:
+def filter_animals_quest(options: StardewValleyOptions, locations: Iterable[LocationData]) -> Iterable[LocationData]:
     # On Meadowlands, "Feeding Animals" replaces "Raising Animals"
     if options.farm_type == FarmType.option_meadowlands:
         return (location for location in locations if location.name != Quest.raising_animals)
     else:
         return (location for location in locations if location.name != Quest.feeding_animals)
+
+
+def filter_farm_exclusives(options: StardewValleyOptions, locations: Iterable[LocationData]) -> Iterable[LocationData]:
+    # Some locations are only on specific farms
+    if options.farm_type != FarmType.option_beach:
+        return (location for location in locations if LocationTags.BEACH_FARM not in location.tags)
+    return locations
+
+
+def filter_farm_type(options: StardewValleyOptions, locations: Iterable[LocationData]) -> Iterable[LocationData]:
+    animals_filter = filter_animals_quest(options, locations)
+    exclusives_filter = filter_farm_exclusives(options, animals_filter)
+    return exclusives_filter
 
 
 def filter_ginger_island(options: StardewValleyOptions, locations: Iterable[LocationData]) -> Iterable[LocationData]:

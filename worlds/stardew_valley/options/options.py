@@ -230,6 +230,25 @@ class BackpackProgression(Choice):
     option_early_progressive = 2
 
 
+class BackpackSize(Choice):
+    """Customize the granularity of the backpack upgrades
+    This works with vanilla and progressive backpack.
+    Default size is 12, which means you start with one backpack (12 slots), and get 2 more upgrades up to 36 slots.
+    If you pick 4, then you start with 3 backpacks (12 slots), and get 6 more upgrades up to 36 slots"""
+    internal_name = "backpack_size"
+    option_1 = 1
+    option_2 = 2
+    option_3 = 3
+    option_4 = 4
+    option_6 = 6
+    option_12 = 12
+    default = option_12
+    display_name = "Backpack Size"
+
+    def count_per_tier(self) -> int:
+        return 12 // self.value
+
+
 class ToolProgression(Choice):
     """Shuffle the tool upgrades?
     Vanilla: Clint will upgrade your tools with metal bars.
@@ -599,6 +618,36 @@ class Walnutsanity(OptionSet):
             return typing.cast(bool, self.value == other)
 
 
+class Moviesanity(Choice):
+    """Add checks for watching movies?
+    None: No movie checks
+    One: There is a check for watching a movie, regardless of which
+    All: Watching all individual movies are checks
+    """
+    internal_name = "moviesanity"
+    display_name = "Moviesanity"
+    default = 1
+    option_none = 0
+    option_one = 1
+    option_all = 2
+
+
+class Secretsanity(Choice):
+    """Add checks for the various secrets and easter eggs present in Stardew Valley. Some of them can be very obscure. If you enable this setting, you should expect to need the wiki a lot.
+    None: None of the in-game secrets are checks
+    Simple: Only secrets that can be obtained quickly and easily, if you know what to do, are included
+    Simple and Fishing: Also includes the various secret fishable items around the world
+    All: All secrets are included. This includes some very difficult ones, generally due to very low odds of something purely RNG-based. Expect lots of grinding and hoping
+    """
+    internal_name = "secretsanity"
+    display_name = "Secretsanity"
+    default = 0
+    option_none = 0
+    option_simple = 1
+    option_simple_and_fishing = 2
+    option_all = 3
+
+
 class NumberOfMovementBuffs(Range):
     """Number of movement speed buffs to the player that exist as items in the pool.
     Each movement speed buff is a +25% multiplier that stacks additively"""
@@ -757,6 +806,14 @@ class Gifting(Toggle):
     default = 1
 
 
+all_mods = {ModNames.deepwoods, ModNames.tractor, ModNames.big_backpack,
+            ModNames.luck_skill, ModNames.magic, ModNames.socializing_skill, ModNames.archaeology,
+            ModNames.cooking_skill, ModNames.binning_skill, ModNames.juna,
+            ModNames.jasper, ModNames.alec, ModNames.yoba, ModNames.eugene,
+            ModNames.wellwick, ModNames.ginger, ModNames.shiko, ModNames.delores,
+            ModNames.ayeisha, ModNames.riley, ModNames.skull_cavern_elevator, ModNames.sve, ModNames.distant_lands,
+            ModNames.alecto, ModNames.lacey, ModNames.boarding_house}
+
 # These mods have been disabled because either they are not updated for the current supported version of Stardew Valley,
 # or we didn't find the time to validate that they work or fix compatibility issues if they do.
 # Once a mod is validated to be functional, it can simply be removed from this list
@@ -766,14 +823,12 @@ disabled_mods = {ModNames.deepwoods, ModNames.magic,
                  ModNames.wellwick, ModNames.shiko, ModNames.delores, ModNames.riley,
                  ModNames.boarding_house}
 
-if 'unittest' in sys.modules.keys() or 'pytest' in sys.modules.keys():
-    disabled_mods = {}
-
 
 class Mods(OptionSet):
     """List of mods that will be included in the shuffling."""
     internal_name = "mods"
     display_name = "Mods"
+<<<<<<< HEAD
     valid_keys = {ModNames.deepwoods, ModNames.tractor, ModNames.big_backpack,
                   ModNames.luck_skill, ModNames.magic, ModNames.socializing_skill, ModNames.archaeology,
                   ModNames.cooking_skill, ModNames.binning_skill, ModNames.juna,
@@ -782,6 +837,13 @@ class Mods(OptionSet):
                   ModNames.ayeisha, ModNames.riley, ModNames.skull_cavern_elevator, ModNames.sve, ModNames.distant_lands,
                   ModNames.alecto, ModNames.lacey, ModNames.boarding_house, ModNames.cornucopia_crops, ModNames.cornucopia_crops_crops, 
                   ModNames.cornucopia_crops_herbs, ModNames.cornucopia_crops_trees}.difference(disabled_mods)
+=======
+    valid_keys = all_mods.difference(disabled_mods)
+    # In tests, we keep even the disabled mods active, because we expect some of them to eventually get updated for SV 1.6
+    # In that case, we want to maintain content and logic for them, and therefore keep testing them
+    if 'unittest' in sys.modules.keys() or 'pytest' in sys.modules.keys():
+        valid_keys = all_mods
+>>>>>>> 68ac834444b80f1cb0c88e906113cbe134006e4d
 
 
 class BundlePlando(OptionSet):
@@ -803,6 +865,7 @@ class StardewValleyOptions(PerGameCommonOptions):
     season_randomization: SeasonRandomization
     cropsanity: Cropsanity
     backpack_progression: BackpackProgression
+    backpack_size: BackpackSize
     tool_progression: ToolProgression
     skill_progression: SkillProgression
     building_progression: BuildingProgression
@@ -822,6 +885,7 @@ class StardewValleyOptions(PerGameCommonOptions):
     friendsanity_heart_size: FriendsanityHeartSize
     booksanity: Booksanity
     walnutsanity: Walnutsanity
+    secretsanity: Secretsanity
     exclude_ginger_island: ExcludeGingerIsland
     quick_start: QuickStart
     starting_money: StartingMoney
