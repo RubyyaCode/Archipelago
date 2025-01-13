@@ -20,6 +20,9 @@ from ...strings.region_names import Region, LogicRegion
 from ...strings.currency_names import Currency
 from ...strings.fish_names import Fish, WaterItem
 from ...strings.metal_names import Fossil
+from ...data.recipe_data
+from ...strings.animal_product_names import AnimalProduct
+from ...strings.ingredient_names import Ingredient
 #from ...data import flower_names, crop_names, seed_names, fruit_tree_names, forageable_names
 
 
@@ -68,6 +71,7 @@ class CornucopiaCropsExtendedTreesContentPack(ContentPack):
 
 register_mod_content_pack(CornucopiaCropsContentPack(
     ModNames.cornucopia_crops,
+    chocolate_cake_ingredients = {Ingredient.wheat_flour: 1, Ingredient.sugar: 1, AnimalProduct.chicken_egg: 1, CornucopiaCropsForageable.cocoa: 1},
    
     harvest_sources={
         CornucopiaCropsVegetable.basil: (Tag(ItemTag.HERB), HarvestCropSource(seed=CornucopiaCropsSeed.basil, seasons=(Season.spring,)),),
